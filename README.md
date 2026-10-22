@@ -82,9 +82,9 @@ O código foi baseado no exemplo da aula (autores: Fábio Henrique Cabrini e Luc
 
 **Como a comunicação acontece neste projeto:**
 
-1. O ESP32 **publica** a temperatura em `/TEF/device0XX/attrs/t`.
+1. O ESP32 **publica** a temperatura em `/TEF/device077/attrs/t`.
 2. O celular **assina** esse tópico e passa a ver o valor.
-3. Para ligar o LED, o celular **publica** `device0XX@on|` em `/TEF/device0XX/cmd`.
+3. Para ligar o LED, o celular **publica** `device077@on|` em `/TEF/device077/cmd`.
 4. O ESP32 **assinou** esse tópico, recebe a mensagem e liga o LED.
 
 ---
@@ -204,7 +204,7 @@ Baixe ou clone este repositório. O arquivo do código fica em `vinheria_mqtt/vi
 Abra o `vinheria_mqtt.ino` e ajuste o bloco do início do arquivo.
 
 ```cpp
-#define NUM     "0XX"            // número do dispositivo do grupo, entre aspas (ex.: "001")
+#define NUM     "077"            // número do dispositivo do grupo, entre aspas (ex.: "001")
 
 const char* SSID     = "FIAP-IOT";       // nome da rede Wi-Fi (2.4 GHz)
 const char* PASSWORD = "SENHA_DA_REDE";  // senha da rede (informada pelo professor)
@@ -271,19 +271,19 @@ Se aparecer `Conectado ao broker MQTT!` e as linhas de leitura, o ESP32 está fu
 
 ## 📡 Tópicos MQTT utilizados
 
-Troque `device0XX` pelo número do dispositivo do grupo. Os tópicos **começam com `/`**.
+Troque `device077` pelo número do dispositivo do grupo. Os tópicos **começam com `/`**.
 
 | Tópico | Direção | O que contém | Exemplo de mensagem |
 |---|---|---|---|
-| `/TEF/device0XX/attrs/t` | ESP32 → Servidor | Temperatura em °C | `24.5` |
-| `/TEF/device0XX/attrs/h` | ESP32 → Servidor | Umidade relativa em % | `62.0` |
-| `/TEF/device0XX/attrs/p` | ESP32 → Servidor | Luminosidade em % (0 a 100) | `45` |
-| `/TEF/device0XX/attrs` | ESP32 → Servidor | Estado do LED | `s\|on` ou `s\|off` |
-| `/TEF/device0XX/cmd` | Servidor → ESP32 | Comando para o LED | `device0XX@on\|` ou `device0XX@off\|` |
+| `/TEF/device077/attrs/t` | ESP32 → Servidor | Temperatura em °C | `24.5` |
+| `/TEF/device077/attrs/h` | ESP32 → Servidor | Umidade relativa em % | `62.0` |
+| `/TEF/device077/attrs/p` | ESP32 → Servidor | Luminosidade em % (0 a 100) | `45` |
+| `/TEF/device077/attrs` | ESP32 → Servidor | Estado do LED | `s\|on` ou `s\|off` |
+| `/TEF/device077/cmd` | Servidor → ESP32 | Comando para o LED | `device077@on\|` ou `device077@off\|` |
 
 - Os valores de temperatura, umidade e luminosidade são enviados a cada **5 segundos**.
 - O estado do LED também é reenviado a cada 5 segundos e na hora em que um comando é executado.
-- O comando é escrito como `device0XX@on|` (liga) e `device0XX@off|` (desliga), **com o `|` no final e sem espaços**.
+- O comando é escrito como `device077@on|` (liga) e `device077@off|` (desliga), **com o `|` no final e sem espaços**.
 
 ---
 
@@ -304,16 +304,16 @@ O app tem três áreas principais: **Settings** (conexão), **Subscribe** (ler) 
 
 ### 2. Leitura: assinar os tópicos (Subscribe)
 
-Na aba **Subscribe**, assine cada um dos tópicos abaixo (trocando `0XX`):
+Na aba **Subscribe**, assine cada um dos tópicos abaixo (trocando `077`):
 
-- `/TEF/device0XX/attrs/t` → temperatura
-- `/TEF/device0XX/attrs/h` → umidade
-- `/TEF/device0XX/attrs/p` → luminosidade
-- `/TEF/device0XX/attrs` → estado do LED
+- `/TEF/device077/attrs/t` → temperatura
+- `/TEF/device077/attrs/h` → umidade
+- `/TEF/device077/attrs/p` → luminosidade
+- `/TEF/device077/attrs` → estado do LED
 
 Espere até **10 segundos**: os valores começam a aparecer a cada 5 segundos.
 
-> **Atalho para ver tudo de uma vez:** assine `/TEF/device0XX/#`. O `#` recebe todos os tópicos que começam com `/TEF/device0XX/`.
+> **Atalho para ver tudo de uma vez:** assine `/TEF/device077/#`. O `#` recebe todos os tópicos que começam com `/TEF/device077/`.
 
 > 📷 **Print do MyMQTT recebendo os dados:**
 > `![MyMQTT leitura](imagens/mymqtt_leitura.png)`
@@ -324,15 +324,15 @@ Na aba **Publish**:
 
 | Campo | Valor |
 |---|---|
-| Topic | `/TEF/device0XX/cmd` |
-| Message (ligar) | `device0XX@on\|` |
-| Message (desligar) | `device0XX@off\|` |
+| Topic | `/TEF/device077/cmd` |
+| Message (ligar) | `device077@on\|` |
+| Message (desligar) | `device077@off\|` |
 
 Depois de enviar:
 
 1. O LED da placa ESP32 acende (ou apaga).
 2. O Monitor Serial mostra a mensagem recebida.
-3. Em até 5 segundos, o tópico `/TEF/device0XX/attrs` passa a mostrar `s|on` ou `s|off`.
+3. Em até 5 segundos, o tópico `/TEF/device077/attrs` passa a mostrar `s|on` ou `s|off`.
 
 ⚠️ **Cuidado ao digitar o comando:** o teclado do celular pode inserir um **espaço antes do `|`**. O código tolera isso, mas confira o texto antes de enviar.
 
@@ -378,9 +378,9 @@ O arquivo `vinheria_mqtt/vinheria_mqtt.ino` é organizado assim:
 | Conecta e desconecta toda hora | Outro dispositivo com o mesmo `NUM` | Conferir se o número do grupo é único |
 | `Falha na leitura do DHT11` | Fio solto, pino errado, falta do resistor (sensor de 4 pinos) | Conferir DATA no GPIO 15, 3V3 e GND |
 | Luminosidade sempre 0 ou sempre 100 | LDR ou resistor mal ligado | Conferir o divisor de tensão no GPIO 34 |
-| Dados não aparecem no MyMQTT | Número do dispositivo diferente no app | O número no tópico do app tem que ser igual ao `NUM` do código; testar com `/TEF/device0XX/#` |
+| Dados não aparecem no MyMQTT | Número do dispositivo diferente no app | O número no tópico do app tem que ser igual ao `NUM` do código; testar com `/TEF/device077/#` |
 | Dados demoram a chegar | Intervalo de envio e atraso de rede | Esperar até 10 s |
-| LED não responde ao comando | Tópico errado ou comando incorreto | Tópico `/TEF/device0XX/cmd`; mensagem `device0XX@on\|` ou `device0XX@off\|`; olhar o Serial |
+| LED não responde ao comando | Tópico errado ou comando incorreto | Tópico `/TEF/device077/cmd`; mensagem `device077@on\|` ou `device077@off\|`; olhar o Serial |
 | Estado continua `s\|off` | Comando não foi recebido | No Serial deve aparecer `- Topico: ... \| Mensagem: [...]` após o envio |
 
 ---
