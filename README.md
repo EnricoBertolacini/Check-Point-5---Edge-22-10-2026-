@@ -18,7 +18,7 @@ Sistema de IoT que mede **temperatura, umidade e luminosidade** de uma adega com
 
 - **Turma:** 1ESR
 - **Professor(a):** Lucas Demetrius
-- **Número do dispositivo do grupo:** `device0XX`
+- **Número do dispositivo do grupo:** `device077`
 
 ---
 
@@ -368,45 +368,6 @@ O arquivo `vinheria_mqtt/vinheria_mqtt.ino` é organizado assim:
 
 ---
 
-## 🧪 Testando sem o hardware (Wokwi)
-
-Não tem o kit em casa? Dá para simular o projeto em <https://wokwi.com> (gratuito). O ESP32 simulado se conecta ao servidor de verdade.
-
-1. Crie um projeto **ESP32** (Arduino).
-2. Cole o conteúdo de `vinheria_mqtt.ino` no `sketch.ino`.
-3. No arquivo `libraries.txt`, escreva uma biblioteca por linha:
-   ```
-   PubSubClient
-   DHT sensor library
-   Adafruit Unified Sensor
-   ```
-4. Adicione ao circuito um **DHT22** e um **Photoresistor Sensor** e ligue assim:
-
-   | Componente | Pino | ESP32 |
-   |---|---|---|
-   | DHT22 | VCC | 3V3 |
-   | DHT22 | SDA | D15 |
-   | DHT22 | GND | GND |
-   | Photoresistor | VCC | 3V3 |
-   | Photoresistor | AO | D34 |
-   | Photoresistor | GND | GND |
-
-5. **Só na simulação**, altere no código:
-   ```cpp
-   #define DHTTYPE DHT22
-   const char* SSID     = "Wokwi-GUEST";
-   const char* PASSWORD = "";
-   ```
-   E use um número de teste no `NUM` (ex.: `"099"`) para não conflitar com outros grupos.
-6. Clique em **▶ Start Simulation** e use o MyMQTT normalmente.
-
-> ⚠️ **Antes de gravar no ESP32 real,** volte `DHTTYPE` para `DHT11`, o `SSID` para `FIAP-IOT` e o `NUM` para o número do grupo.
-
----
-
-
----
-
 ## 🛠️ Solução de problemas
 
 | Sintoma | Causa provável | O que fazer |
@@ -436,4 +397,4 @@ Por segurança, a senha real do Wi-Fi **não está no código deste repositório
 
 ---
 
-*Projeto acadêmico – FIAP – Edge Computing – Check Point 05.*
+
