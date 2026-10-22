@@ -34,10 +34,7 @@ Sistema de IoT que mede **temperatura, umidade e luminosidade** de uma adega com
 8. [Tópicos MQTT utilizados](#-tópicos-mqtt-utilizados)
 9. [Usando o MyMQTT (leitura e escrita)](#-usando-o-mymqtt-leitura-e-escrita)
 10. [Como o código funciona](#-como-o-código-funciona)
-11. [Testando sem o hardware (Wokwi)](#-testando-sem-o-hardware-wokwi)
-12. [Demonstração (Hands-On)](#-demonstração-hands-on)
-13. [Solução de problemas](#-solução-de-problemas)
-14. [Estrutura do repositório](#-estrutura-do-repositório)
+11. [Solução de problemas](#-solução-de-problemas)
 
 ---
 
