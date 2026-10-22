@@ -404,19 +404,6 @@ Não tem o kit em casa? Dá para simular o projeto em <https://wokwi.com> (gratu
 
 ---
 
-## 🎬 Demonstração (Hands-On)
-
-Roteiro seguido na apresentação:
-
-| # | O que mostrar | Resultado esperado |
-|---|---|---|
-| 1 | Circuito montado (ESP32, DHT11, LDR) | Ligações conferem com a tabela |
-| 2 | Monitor Serial | `Conectado ao broker MQTT!` e leituras a cada 5 s |
-| 3 | MyMQTT assinando os tópicos | Temperatura, umidade, luminosidade e estado do LED chegando |
-| 4 | **Cobrir o LDR** com a mão | A luminosidade **diminui** |
-| 5 | **Soprar ou aproximar a mão** do DHT11 | Temperatura e umidade **sobem** |
-| 6 | Publicar `device0XX@on\|` | LED acende e o estado muda para `s\|on` |
-| 7 | Publicar `device0XX@off\|` | LED apaga e o estado muda para `s\|off` |
 
 ---
 
@@ -440,19 +427,6 @@ Roteiro seguido na apresentação:
 
 ---
 
-## 📁 Estrutura do repositório
-
-```
-vinheria-agnello-cp05/
-├── README.md                  ← este arquivo
-├── vinheria_mqtt/
-│   └── vinheria_mqtt.ino      ← código do ESP32
-└── imagens/
-    ├── circuito.jpg           ← foto do circuito montado
-    ├── monitor_serial.png     ← print do Monitor Serial
-    ├── mymqtt_leitura.png     ← print do MyMQTT recebendo dados
-    └── mymqtt_escrita.png     ← print do comando do LED
-```
 
 ---
 
