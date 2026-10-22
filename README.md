@@ -10,13 +10,14 @@ Sistema de IoT que mede **temperatura, umidade e luminosidade** de uma adega com
 
 | Nome completo | RM |
 |---|---|
-| NOME DO INTEGRANTE 1 | RM00000 |
-| NOME DO INTEGRANTE 2 | RM00000 |
-| NOME DO INTEGRANTE 3 | RM00000 |
-| NOME DO INTEGRANTE 4 | RM00000 |
+| Enrico Bertolacini| RM 570999 |
+| Matheus Sá Teles | RM 571719|
+| Julia Lima da Silva  | RM 569203 |
+| Pedro Antonio Borges | RM 572549|
+| Guilherme Alvejan  | RM 570835|
 
-- **Turma:** XXXX
-- **Professor(a):** XXXX
+- **Turma:** 1ESR
+- **Professor(a):** Lucas Demetrius
 - **Número do dispositivo do grupo:** `device0XX`
 
 ---
