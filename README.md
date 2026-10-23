@@ -38,7 +38,7 @@ Sistema de IoT que mede **temperatura, umidade e luminosidade** de uma adega com
 
 ---
 
-## 🎯 O que o projeto faz
+##  O que o projeto faz
 
 A Vinheria Agnello precisa conservar seus vinhos em boas condições. Calor excessivo, umidade inadequada e muita luz prejudicam a bebida. Este projeto monitora esses três fatores continuamente.
 
@@ -51,7 +51,6 @@ A Vinheria Agnello precisa conservar seus vinhos em boas condições. Calor exce
 | **Escrita (comando)** | O app MyMQTT envia um comando e o ESP32 liga ou desliga o LED |
 | **Estado do LED** | O ESP32 informa ao servidor se o LED está ligado (`s\|on`) ou desligado (`s\|off`) |
 
-O código foi baseado no exemplo da aula (autores: Fábio Henrique Cabrini e Lucas Demetrius Augusto), com a inclusão do sensor DHT11, dos tópicos de temperatura e umidade e de um tratamento mais tolerante dos comandos.
 
 ### Visão geral da arquitetura
 
@@ -64,7 +63,7 @@ O código foi baseado no exemplo da aula (autores: Fábio Henrique Cabrini e Luc
 
 ---
 
-## 📚 Conceitos básicos (para quem nunca viu MQTT)
+##  Conceitos básicos (para quem nunca viu MQTT)
 
 | Termo | O que é |
 |---|---|
@@ -89,7 +88,7 @@ O código foi baseado no exemplo da aula (autores: Fábio Henrique Cabrini e Luc
 
 ---
 
-## 🧰 Materiais necessários
+##  Materiais necessários
 
 ### Hardware
 
@@ -114,9 +113,9 @@ O código foi baseado no exemplo da aula (autores: Fábio Henrique Cabrini e Luc
 
 ---
 
-## 🔌 Montagem do circuito
+##  Montagem do circuito
 
-> ⚠️ **Monte o circuito com o ESP32 desconectado do USB.** Conecte o cabo só depois de conferir tudo.
+>  **Monte o circuito com o ESP32 desconectado do USB.** Conecte o cabo só depois de conferir tudo.
 
 ### Tabela de ligação
 
@@ -148,12 +147,12 @@ Com **mais luz**, o LDR tem menos resistência, a tensão no GPIO 34 sobe e a lu
 - **Módulo de 3 pinos** (com uma plaquinha e etiquetas `+`, `OUT`, `−`): ligue direto, como na tabela. O resistor já vem na plaquinha.
 - **Sensor solto de 4 pinos:** ligue o pino 1 no 3V3, o pino 2 no GPIO 15 e o pino 4 no GND (o pino 3 não é usado). Coloque um **resistor de 10 kΩ entre o pino 1 (3V3) e o pino 2 (GPIO 15)**. Sem ele, as leituras falham.
 
-> 📷 **Foto do circuito montado:**
+>  **Foto do circuito montado:**
 > `![Circuito montado](imagens/circuito.jpg)`
 
 ---
 
-## 💻 Preparação do computador
+## Preparação do computador
 
 Faça uma vez só.
 
@@ -188,7 +187,7 @@ Se a IDE perguntar sobre dependências, clique em **Install all**.
 
 Baixe ou clone este repositório. O arquivo do código fica em `vinheria_mqtt/vinheria_mqtt.ino`.
 
-> ⚠️ O arquivo `.ino` precisa estar dentro de uma pasta com o **mesmo nome** (`vinheria_mqtt`). Se não estiver, a IDE reclama.
+>  O arquivo `.ino` precisa estar dentro de uma pasta com o **mesmo nome** (`vinheria_mqtt`). Se não estiver, a IDE reclama.
 
 ### 5. Conferir se compila (opcional, não precisa da placa)
 
@@ -264,9 +263,6 @@ Temp: 24.0 C | Umid: 60.0 % | Luz: 44 % | LED: off
 
 Se aparecer `Conectado ao broker MQTT!` e as linhas de leitura, o ESP32 está funcionando e enviando dados.
 
-> 📷 **Print do Monitor Serial:**
-> `![Monitor Serial](imagens/monitor_serial.png)`
-
 ---
 
 ## 📡 Tópicos MQTT utilizados
@@ -335,9 +331,6 @@ Depois de enviar:
 3. Em até 5 segundos, o tópico `/TEF/device077/attrs` passa a mostrar `s|on` ou `s|off`.
 
 ⚠️ **Cuidado ao digitar o comando:** o teclado do celular pode inserir um **espaço antes do `|`**. O código tolera isso, mas confira o texto antes de enviar.
-
-> 📷 **Print do comando enviado:**
-> `![MyMQTT escrita](imagens/mymqtt_escrita.png)`
 
 ---
 
