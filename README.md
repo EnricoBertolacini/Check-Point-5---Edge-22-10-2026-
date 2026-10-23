@@ -100,7 +100,7 @@ A Vinheria Agnello precisa conservar seus vinhos em boas condições. Calor exce
 | Resistor de 10 kΩ | 1 | Para o divisor de tensão do LDR (marrom, preto, laranja) |
 | Resistor de 10 kΩ | 1 | **Só se o DHT11 for o sensor solto de 4 pinos** (veja a nota na montagem) |
 | Protoboard | 1 | |
-| Jumpers | vários | |
+| Jumpers | 4 ou + | |
 | Cabo USB | 1 | Precisa ser de **dados**; alguns cabos só carregam |
 
 ### Software e contas
